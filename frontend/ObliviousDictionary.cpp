@@ -340,7 +340,9 @@ void ObliviousDictionary::generateExternalToolValues(){
 
     GF2EVector variablesSlim(2*matrixSize + gamma);
     //call the solver and get the results in variables
-    solve_api(matrix, values, variablesSlim, fieldSize);
+
+    // TODO: This crashes if the core is nonn-empty. Disable for timings.
+//    solve_api(matrix, values, variablesSlim, fieldSize);
 
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(end-start).count();
